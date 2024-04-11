@@ -1,0 +1,74 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  /* Utilizar flexbox para alinear los elementos */
+  justify-content: center;
+  /* Centrar los elementos horizontalmente */
+  align-items: center;
+  /* Centrar los elementos verticalmente */
+  height: 100vh;
+  /* Ocupar toda la altura de la pantalla */
+  background-image: url("img/macos-big-sur-wallpaper-2-scaled.jpg");
+  background-size: cover;
+  /* Ajustar la imagen para cubrir todo el fondo */
+  background-position: center;
+  /* Centrar la imagen en el fondo */
+}
+
+.wrapper {
+  width: 360px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  /* Agregar un color de fondo */
+  border-radius: 10px;
+  /* Agregar bordes redondeados */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  /* Agregar sombra */
+}
+
+/* Estilos para pantallas más pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    /* Apilar los elementos verticalmente */
+    justify-content: center;
+    /* Centrar los elementos verticalmente */
+    align-items: center;
+    /* Centrar los elementos horizontalmente */
+    height: 100vh;
+    /* Utilizar toda la altura de la pantalla */
+  }
+
+  .wrapper {
+    width: 80%;
+    /* Establecer el ancho del contenedor */
+    max-width: 360px;
+    /* Ancho máximo para evitar que el formulario se estire demasiado */
+    margin: auto;
+    /* Centrar horizontalmente el contenedor */
+    border-radius: 10px;
+    /* Agregar bordes redondeados */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    /* Agregar sombra */
+  }
+}
+@media screen and (max-width: 768px) {
+  .sneakersun-paragraph {
+    display: none; /* Ocultar el párrafo en pantallas más pequeñas */
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

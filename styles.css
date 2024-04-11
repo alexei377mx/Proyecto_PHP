@@ -1,0 +1,141 @@
+html{
+  scroll-behavior: smooth;
+}
+
+.card {
+  /* 3 products in each row */
+  flex: 0 0 calc(33.33% - 6px);
+
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cardSn {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+body {
+  
+  font-family: Arial, sans-serif;
+  /* background-color: #f9f9f9; */
+  margin: 0;
+  padding: 0;
+  background-image: url("img/macos-big-sur-wallpaper-2-scaled.jpg");
+  background-size: cover;
+  /* Ajustar la imagen para cubrir todo el fondo */
+  background-position: center;
+  /* Centrar la imagen en el fondo */
+  background-attachment: fixed; /* Hacer que la imagen de fondo permanezca fija */
+}
+
+.container {
+  max-width: auto;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  background-color: transparent;
+}
+
+h1 {
+  color: #333;
+  
+}
+
+h4 {
+  color: black;
+}
+
+h5 {
+  color: black;
+}
+
+p {
+  color: #666;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+}
+
+.values-list li {
+  margin-bottom: 10px;
+}
+
+.half-br {
+  display: block;
+  content: "";
+  height: 0.5em;
+  /* Ajusta la altura a la mitad de una línea */
+}
+
+.objectives-list {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .sneakersun-paragraph {
+    display: none; /* Ocultar el párrafo en pantallas más pequeñas */
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Estilos para ocultar la barra de búsqueda */
+.hidden {
+  display: none;
+}
+/* Estilos para el botón de búsqueda */
+#searchButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+/* Estilos para la barra de búsqueda */
+#searchBar {
+  margin-top: 10px;
+}
+#searchInput {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+#searchSubmit {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+/* Estilos para ocultar la barra de búsqueda inicialmente */
+.search-container {
+  display: none;
+}
+/* Estilos para mostrar la barra de búsqueda al hacer clic en el botón */
+.search-container.active {
+  display: block;
+}
