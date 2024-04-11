@@ -16,7 +16,7 @@ if (!isset($_REQUEST['id'])) {
 <!-- encabezado -->
 
 <head>
-    <title>Sneakersun - orden ID</title>
+    <title>Sneakersun - Identificador de la orden</title>
     <link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Enlace a la hoja de estilos de Bootstrap -->
