@@ -175,29 +175,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Contraseña</label>
-                <input style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <input style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Confirmar Contraseña</label>
-                <input style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <input style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Nombre</label>
-                <input style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="text" name="name" class="form-control">
+                <input style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Email</label>
-                <input style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="email" name="email" class="form-control">
+                <input style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="email" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Teléfono</label>
-                <input style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="text" name="phone" class="form-control">
+                <input style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" type="text" name="phone" class="form-control">
             </div>
             <div class="form-group">
                 <label style="color: #ffffffce; display: block; text-align: center;">Dirección</label>
-                <textarea style="background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" name="address" class="form-control"></textarea>
+                <textarea style="color: #ffffffce; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)" name="address" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Enviar" style="background-color: purple; color: #ffffffce; border: none;">

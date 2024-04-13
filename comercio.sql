@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-04-2024 a las 05:55:06
+-- Tiempo de generación: 11-04-2024 a las 04:54:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,14 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `address` text NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` enum('1','0') DEFAULT NULL
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` enum('1','0') DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `customers`
+--
+
+INSERT INTO `customers` (`id`, `username`, `password`, `name`, `email`, `phone`, `address`, `created`, `modified`, `status`, `user_id`) VALUES
+(11, 'alexei59k2', '$2y$10$83VqMjmzXYs2.PmA2BAaDewQD4J.k9BL8yY4HN6hiyqpXpo4cxXYi', 'alexei', 'macias@gmail.com', '5513000229', 'calle', '2024-04-08 19:44:07', '2024-04-08 19:44:07', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -53,6 +63,16 @@ CREATE TABLE `orders` (
   `status` enum('1','0') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`, `status`) VALUES
+(1, 11, 4795.50, '2024-04-09 03:47:34', '2024-04-09 03:47:34', NULL),
+(2, 11, 11784.00, '2024-04-09 03:51:59', '2024-04-09 03:51:59', NULL),
+(3, 11, 5377.40, '2024-04-09 04:07:02', '2024-04-09 04:07:02', NULL),
+(4, 11, 4472.30, '2024-04-09 04:18:52', '2024-04-09 04:18:52', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +85,21 @@ CREATE TABLE `order_items` (
   `product_id` int(11) NOT NULL,
   `quantity` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
+(1, 0, 46, 4),
+(2, 2, 41, 2),
+(3, 2, 27, 2),
+(4, 3, 45, 1),
+(5, 3, 38, 1),
+(6, 3, 21, 1),
+(7, 4, 11, 1),
+(8, 4, 8, 1),
+(9, 4, 13, 2);
 
 -- --------------------------------------------------------
 
@@ -156,7 +191,6 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `status`, `URLimg`
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `name` text NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -165,10 +199,13 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `name`, `password`, `created_at`) VALUES
-(1, 'emacias', '', '$2y$10$DnKPxp4Bmb0JXpZauDK0Xu64hsCsV8UO28SBW5Jxgb.E4yPrR5/kG', '2024-03-16 14:50:14'),
-(2, 'emacias1', '', '$2y$10$OMaZKx4RcMirETM/BbveTO0js7qVp6BzTNAUPLQvJYqPuUBy4hmPi', '2024-03-26 14:36:00'),
-(3, 'as', '', '$2y$10$7s7.eR8tcKanDtNobKZ64.s/zNG/rMViJ8ISRMKLECYoMqWbIe3ey', '2024-04-03 19:48:39');
+INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
+(1, 'emacias', '$2y$10$DnKPxp4Bmb0JXpZauDK0Xu64hsCsV8UO28SBW5Jxgb.E4yPrR5/kG', '2024-03-16 14:50:14'),
+(2, 'emacias1', '$2y$10$OMaZKx4RcMirETM/BbveTO0js7qVp6BzTNAUPLQvJYqPuUBy4hmPi', '2024-03-26 14:36:00'),
+(3, 'as', '$2y$10$7s7.eR8tcKanDtNobKZ64.s/zNG/rMViJ8ISRMKLECYoMqWbIe3ey', '2024-04-03 19:48:39'),
+(4, '', '$2y$10$y6BPo91yV.qfi.udP73UYukeapHvjCENpcfF7gcrH7F2uSuAuyHDa', '2024-04-06 15:23:00'),
+(5, 'adam', '$2y$10$/M.GBVB2iJB5zTkWR.BeT.ELI2QrauZ.4P7GALirsiMh51UPOWuki', '2024-04-06 15:41:08'),
+(6, 'joe', '$2y$10$0QGIGnFR.4ZJwGwoWibFzu9CDbPsNL4Alu/Id5OQZgVaAMGmYYih2', '2024-04-07 20:09:27');
 
 --
 -- Índices para tablas volcadas
@@ -178,7 +215,8 @@ INSERT INTO `users` (`id`, `username`, `name`, `password`, `created_at`) VALUES
 -- Indices de la tabla `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_customer_user` (`user_id`);
 
 --
 -- Indices de la tabla `orders`
@@ -212,14 +250,38 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `customers`
+--
+ALTER TABLE `customers`
+  ADD CONSTRAINT `fk_customer_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `orders`
