@@ -220,12 +220,57 @@ $custRow = $query->fetch_assoc();
             require_once "dbConfig.php";
             /* echo "El ID del usuari0000o actual es: " . $_SESSION['id']; */
 
-
             ?>
             </table>
 
+            <h1 align="center">¡Ya Casi Son Tuyos!</h1>
+            <h6 align="center">Estas a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
+
+            <br>
+            <div style="min-height:500px" ; align="center" id="paypal-button-container"></div>
+
+            <?php
+            /* include("header.php"); */
+            ?>
+            <script src="https://www.paypal.com/sdk/js?client-id=AQS77ljM6yn5InALQQIUPrFm2OtpsxwBwWDBfymwtUbvUX8dvAP4TPLZBaz-47Dhuvxo388Nr2mdS_Dk&currency=MXN"></script>
+
+            <script>
+                paypal.Buttons({
+
+                    // Sets up the transaction when a payment button is clicked
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '<?php echo '$' . $cart->total() . ' MXN'; ?>' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                                }
+                            }]
+                        });
+                    },
+
+                    // Finalize the transaction after payer approval
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+                            // Successful capture! For dev/demo purposes:
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                            console.log(data);
+                            var transaction = orderData.purchase_units[0].payments.captures[0];
+                            alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                            // When ready to go live, remove the alert and show a success message within this page. For example:
+                            // var element = document.getElementById('paypal-button-container');
+                            // element.innerHTML = '';
+                            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                            window.location.href = "../controlador/Pago.php?paypal=" + transaction.id;
+                            // actions.redirect('index.php');
+                        });
+                    }
+                }).render('#paypal-button-container');
+            </script>
 
             <div class="footBtn">
+
+                <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn float-right">Pagar<i class="glyphicon glyphicon-menu-right"></i></a>
 
                 <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn float-right">Realizar Orden<i class="glyphicon glyphicon-menu-right"></i></a>
             </div>
