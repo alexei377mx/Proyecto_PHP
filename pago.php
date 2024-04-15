@@ -5,14 +5,19 @@ include 'dbConfig.php';
 include 'Cart.php';
 $cart = new Cart;
 /* $total = 300; */
+
+if ($cart->total_items() <= 0) {
+  header("Location: index.php");
+}
+
 ?>
 
 <main style="min-height:500px">
   <div class="row">
     <div class="s12">
 
-      <h1 align="center">¡Ya Casi Son Tuyos!</h1>
-      <h6 align="center">Estas a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
+      <h1 style="text-align: center;">¡Ya Casi Son Tuyos!</h1>
+      <h6 style="text-align: center;">Estas a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
 
       <br>
       <div align="center" id="paypal-button-container"></div>
@@ -49,7 +54,10 @@ $cart = new Cart;
         // var element = document.getElementById('paypal-button-container');
         // element.innerHTML = '';
         // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-        window.location.href = "../controlador/Pago.php?paypal=" + transaction.id;
+
+        /* window.location.href = "../controlador/Pago.php?paypal=" + transaction.id; */
+
+        window.location.href = "cartAction.php?action=placeOrder";
         // actions.redirect('index.php');
       });
     }

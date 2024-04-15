@@ -1,3 +1,8 @@
+<!-- sandbox paypal
+    sb-ylpxc30409911@personal.example.com
+    T.U@0B&u
+-->
+
 <?php
 
 include 'dbConfig.php';
@@ -223,15 +228,27 @@ $custRow = $query->fetch_assoc();
             ?>
             </table>
 
-            <h1 align="center">¡Ya Casi Son Tuyos!</h1>
-            <h6 align="center">Estas a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
+            <!--   <div class="footBtn">
 
-            <br>
-            <div style="min-height:500px" ; align="center" id="paypal-button-container"></div>
+                <a href="pago.php" class="btn btn-success orderBtn float-right">Pagar<i class="glyphicon glyphicon-menu-right"></i></a>
 
-            <?php
-            /* include("header.php"); */
-            ?>
+                <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn float-right">Realizar Orden<i class="glyphicon glyphicon-menu-right"></i></a>
+            </div> -->
+        </div>
+
+        <div class="container" style="display: inline-block; background-color: rgba(255, 255, 255, 0.05); margin-top: 10px; margin-bottom: 20px; text-align: center;">
+
+            <main>
+                <div class="row">
+                    <div class="s12">
+                        <h6 style="color: #ffffffce;">Estás a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
+
+                        <br>
+                        <div id="paypal-button-container" style="display: inline-block;"></div>
+                    </div>
+                </div>
+            </main>
+
             <script src="https://www.paypal.com/sdk/js?client-id=AQS77ljM6yn5InALQQIUPrFm2OtpsxwBwWDBfymwtUbvUX8dvAP4TPLZBaz-47Dhuvxo388Nr2mdS_Dk&currency=MXN"></script>
 
             <script>
@@ -242,7 +259,7 @@ $custRow = $query->fetch_assoc();
                         return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                    value: '<?php echo '$' . $cart->total() . ' MXN'; ?>' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                                    value: '<?php echo $cart->total(); ?>' // Can reference variables or functions. Example: `value: document.getElementById('...').value`
                                 }
                             }]
                         });
@@ -261,21 +278,16 @@ $custRow = $query->fetch_assoc();
                             // var element = document.getElementById('paypal-button-container');
                             // element.innerHTML = '';
                             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                            window.location.href = "../controlador/Pago.php?paypal=" + transaction.id;
+
+                            /* window.location.href = "../controlador/Pago.php?paypal=" + transaction.id; */
+
+                            window.location.href = "cartAction.php?action=placeOrder";
                             // actions.redirect('index.php');
                         });
                     }
                 }).render('#paypal-button-container');
             </script>
-
-            <div class="footBtn">
-
-                <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn float-right">Pagar<i class="glyphicon glyphicon-menu-right"></i></a>
-
-                <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn float-right">Realizar Orden<i class="glyphicon glyphicon-menu-right"></i></a>
-            </div>
         </div>
-
 
 
 </body>

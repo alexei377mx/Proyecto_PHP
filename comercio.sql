@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2024 a las 04:54:57
+-- Tiempo de generación: 15-04-2024 a las 05:54:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,7 +46,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `username`, `password`, `name`, `email`, `phone`, `address`, `created`, `modified`, `status`, `user_id`) VALUES
-(11, 'alexei59k2', '$2y$10$83VqMjmzXYs2.PmA2BAaDewQD4J.k9BL8yY4HN6hiyqpXpo4cxXYi', 'alexei', 'macias@gmail.com', '5513000229', 'calle', '2024-04-08 19:44:07', '2024-04-08 19:44:07', NULL, NULL);
+(1, 'emacias0', '$2y$10$OOWCyceefVy1wnOUf44YfOqG2Z7438t.VUTaeKHCwaFrcRpMJJbjC', 'Alexei', 'al@gm.com', '5513000226', 'calle 5 CDMX', '2024-04-12 16:54:08', '2024-04-12 16:54:08', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -60,18 +60,25 @@ CREATE TABLE `orders` (
   `total_price` float(10,2) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `status` enum('1','0') DEFAULT NULL
+  `status` enum('1','0') DEFAULT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`, `status`) VALUES
-(1, 11, 4795.50, '2024-04-09 03:47:34', '2024-04-09 03:47:34', NULL),
-(2, 11, 11784.00, '2024-04-09 03:51:59', '2024-04-09 03:51:59', NULL),
-(3, 11, 5377.40, '2024-04-09 04:07:02', '2024-04-09 04:07:02', NULL),
-(4, 11, 4472.30, '2024-04-09 04:18:52', '2024-04-09 04:18:52', NULL);
+INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`, `status`, `transaction_id`) VALUES
+(1, 11, 4795.50, '2024-04-09 03:47:34', '2024-04-09 03:47:34', NULL, NULL),
+(2, 11, 11784.00, '2024-04-09 03:51:59', '2024-04-09 03:51:59', NULL, NULL),
+(3, 11, 5377.40, '2024-04-09 04:07:02', '2024-04-09 04:07:02', NULL, NULL),
+(4, 11, 4472.30, '2024-04-09 04:18:52', '2024-04-09 04:18:52', NULL, NULL),
+(5, 12, 1479.00, '2024-04-11 05:02:36', '2024-04-11 05:02:36', NULL, NULL),
+(6, 1, 1599.20, '2024-04-15 04:16:10', '2024-04-15 04:16:10', NULL, NULL),
+(7, 1, 7397.30, '2024-04-15 05:08:07', '2024-04-15 05:08:07', NULL, NULL),
+(8, 1, 1499.00, '2024-04-15 05:09:04', '2024-04-15 05:09:04', NULL, NULL),
+(9, 1, 1149.00, '2024-04-15 05:41:31', '2024-04-15 05:41:31', NULL, NULL),
+(10, 1, 1129.50, '2024-04-15 05:52:39', '2024-04-15 05:52:39', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +106,15 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 (6, 3, 21, 1),
 (7, 4, 11, 1),
 (8, 4, 8, 1),
-(9, 4, 13, 2);
+(9, 4, 13, 2),
+(10, 5, 21, 1),
+(11, 6, 29, 1),
+(12, 7, 6, 1),
+(13, 7, 42, 2),
+(14, 7, 1, 1),
+(15, 8, 51, 1),
+(16, 9, 4, 1),
+(17, 10, 31, 1);
 
 -- --------------------------------------------------------
 
@@ -253,19 +268,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

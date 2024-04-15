@@ -130,75 +130,75 @@
 
 <body>
     <!-- barra de navegacion -->
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
-			<a class="navbar-brand" href="index.php">
-				<a class="navbar-brand" href="index.php" style="color: #ffffffce;">
-					<img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
-					Sneakersun SA de CV
-				</a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
+            <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="index.php" style="color: #ffffffce;">
+                    <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
+                    Sneakersun SA de CV
+                </a>
 
-				<p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ml-auto">
+                <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
 
-						<li class="nav-item">
-							<!-- Formulario de búsqueda -->
-							<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+                        <li class="nav-item">
+                            <!-- Formulario de búsqueda -->
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
 
-							<form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
-								<div class="input-group">
-									<!-- buscador -->
-									<input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
+                            <form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
+                                <div class="input-group">
+                                    <!-- buscador -->
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
 
-									<div class="input-group-append">
-										<button class="btn btn-outline-success" type="submit" id="button-addon2">
-											<i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
-										</button>
-									</div>
-								</div>
-							</form>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-success" type="submit" id="button-addon2">
+                                            <i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
 
-							<!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
-							<script>
-								// Agregar un evento de clic al icono de lupa para enviar el formulario
-								document.getElementById('button-addon2').addEventListener('click', function(event) {
-									event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-									document.querySelector('form').submit(); // Enviar el formulario
-								});
-							</script>
-						</li>
+                            <!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
+                            <script>
+                                // Agregar un evento de clic al icono de lupa para enviar el formulario
+                                document.getElementById('button-addon2').addEventListener('click', function(event) {
+                                    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+                                    document.querySelector('form').submit(); // Enviar el formulario
+                                });
+                            </script>
+                        </li>
 
-						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="productos.php">Productos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="acerca.php">Acerca de</a>
-						</li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.php">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="acerca.php">Acerca de</a>
+                        </li>
 
-						<!-- Menú desplegable -->
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Cuenta
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-								<a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
-								<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-								<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-							</div>
-						</li>
-						</form>
-						</li>
-					</ul>
-				</div>
-		</nav>
-	</header>
+                        <!-- Menú desplegable -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cuenta
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
+                                <a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
+                                <a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+                                <a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
+                            </div>
+                        </li>
+                        </form>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    </header>
 
     <main id="blog" style="margin-top: 0px;">
         <div class="container fade-in" style=" max-width: 1000px; width: 90%; margin: auto; display: flex; justify-content: space-between;">
@@ -209,6 +209,7 @@
                     <a href="#articulo-1">Nuestra historia</a>
                     <a href="#articulo-2">Identidad</a>
                     <a href="#articulo-3">Legal</a>
+                    <a href="#articulo-4">Métodos de pago</a>
                 </nav>
             </aside>
             <div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 0px; margin-bottom: 20px;">
@@ -252,6 +253,64 @@
                         rhoncus ante justo in nibh. Duis sit amet ipsum tempus,
                         pellentesque ex sed, mollis erat. Sed metus nibh, tincidunt vel
                         laoreet eget, bibendum at est.
+                    </p>
+                </div>
+                <div class="post">
+                    <h1 class="titulo" id="articulo-4" style="color: #ffffffce;  text-align: center;">Métodos de pago</h1>
+                    <p style="color: #ffffffce;">
+                    <p class="text fw-lighter " style="color: #ffffffce;">
+                        En nuestra tienda en línea contamos con plataformas de pago que cumplen con los más altos estándares de seguridad. A través de estas plataformas aceptamos los siguientes métodos de pago:
+                        <mark>Tarjetas de Crédito, Tarjetas de Débito, pagos electrónicos PAYPAL</mark>
+                    </p>
+
+                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                        SEGURIDAD
+                    </p>
+
+                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                        - PRIVACIDAD ABSOLUTA: Nadie verá los datos de tu tarjeta de crédito o débito. Jamás. Toda la información financiera y personal está encriptada y protegida por SSL con una llave de encriptación de 128 bits.
+                    </p>
+                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                        - ESTÁNDARES DE SEGURIDAD: Contamos con los más altos estándares de seguridad.
+                    </p>
+                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                        FORMAS DE PAGO
+                    </p>
+                    <p class="text fw-lighter fs-6" style="color: #ffffffce;">- TARJETAS DE CRÉDITO con acreditación instantánea (valida las promociones a meses sin intereses vigentes).</p>
+                    <p class="text  fw-lighter fs-6" style="color: #ffffffce;">
+                        - TARJETAS DE DÉBITO con acreditación instantánea.
+                    </p>
+
+                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                        - PAGO CON CUENTA DE PAYPAL:
+                    </p>
+                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                        Es necesario tener una cuenta y registrar tus datos bancarios directamente en la página de PayPal.
+                        Para más información acerca de los métodos de pago a través de la plataforma de PayPal, haz clic en el siguiente enlace:
+                        <mark>www.paypal.com/mx/webapps/mpp/pay-online</mark>
+                    </p>
+
+                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                        SEGURIDAD
+                    </p>
+                    <p class="text  fw-lighter fs-6" style="color: #ffffffce;">
+                        - TUS DATOS, EL SECRETO MEJOR GUARDADO: PayPal no comparte tu información financiera con los comercios. Olvídate de tu número de tarjeta y código secreto. Para comprar solo necesitas tu correo electrónico y contraseña.
+                    </p>
+                    <p class="text  fw-lighter fs-6" style="color: #ffffffce;">
+                        - PROTECCIÓN AL COMPRADOR: Si tu compra no sale como esperabas, y cumple los requisitos para entrar en el programa de Protección al Comprador, PayPal te ayudará. Para más información del programa, haz clic en el siguiente enlace: www.paypal.com/mx/webapps/mpp/paypal-buyer-protection
+                    </p>
+
+
+                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                        MÉTODOS DE PAGO
+                    </p>
+
+                    <p class="text fw-lighter fs-6" style="color: #ffffffce;">- SALDO PAYPAL con acreditación instantánea.
+                    </p>
+                    <p class="text  fw-lighter fs-6" style="color: #ffffffce;">
+                        - TARJETAS DE CRÉDITO con acreditación instantánea. En ocasiones podremos tener promociones de meses sin intereses, las cuales se anunciarán directamente en la sección de cada promoción.
+                    </p>
+                    <p class="text fw-lighter fs-6" style="color: #ffffffce;">- TARJETAS DE DÉBITO con acreditación instantánea.</p>
                     </p>
                 </div>
             </div>
