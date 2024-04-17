@@ -103,16 +103,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <!-- Barra de navegación -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
             <a class="navbar-brand" href="index.php">
-                <a class="navbar-brand" href="index.php" style="color: #ffffffce;">
-                    <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
-                    Sneakersun SA de CV
-                </a>
-
-                <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
+                <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
+                Sneakersun SA de CV
             </a>
+            <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
         </nav>
     </header>
 
@@ -139,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Iniciar Sesión"  style="background-color: purple; color: #ffffffce; border: none;">
+                <input type="submit" class="btn btn-primary" value="Iniciar Sesión" style="background-color: purple; color: #ffffffce; border: none;">
             </div>
             <p style="color: #ffffffce;">¿No tienes una cuenta?
                 <a href="register.php">Regístrate ahora</a>

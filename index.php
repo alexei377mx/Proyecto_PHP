@@ -4,6 +4,7 @@
 // Mandamos llamar nuestra BD
 include 'dbConfig.php';
 ?>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap JS -->
@@ -14,7 +15,6 @@ include 'dbConfig.php';
 <html lang="es">
 
 <!-- encabezado -->
-
 <head>
 	<title>Sneakersun SA de CV</title>
 	<link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
@@ -85,8 +85,6 @@ include 'dbConfig.php';
 			</div>
 		</nav>
 	</header>
-
-
 
 	<!-- presentacion Index -->
 	<div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 100px; margin-bottom: 20px;">
