@@ -129,74 +129,64 @@
 </style>
 
 <body>
-    <!-- barra de navegacion -->
+    <!-- Barra de navegación -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
             <a class="navbar-brand" href="index.php">
-                <a class="navbar-brand" href="index.php" style="color: #ffffffce;">
-                    <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
-                    Sneakersun SA de CV
-                </a>
-
-                <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-
-                        <li class="nav-item">
-                            <!-- Formulario de búsqueda -->
-                            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
-
-                            <form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
-                                <div class="input-group">
-                                    <!-- buscador -->
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
-
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-success" type="submit" id="button-addon2">
-                                            <i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
-                                        </button>
-                                    </div>
+                <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
+                Sneakersun SA de CV
+            </a>
+            <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- Formulario de búsqueda -->
+                        <form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
+                            <div class="input-group">
+                                <!-- buscador -->
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="submit" id="button-addon2">
+                                        <i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
+                                    </button>
                                 </div>
-                            </form>
-
-                            <!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
-                            <script>
-                                // Agregar un evento de clic al icono de lupa para enviar el formulario
-                                document.getElementById('button-addon2').addEventListener('click', function(event) {
-                                    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-                                    document.querySelector('form').submit(); // Enviar el formulario
-                                });
-                            </script>
-                        </li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="productos.php">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="acerca.php">Acerca de</a>
-                        </li>
-
-                        <!-- Menú desplegable -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cuenta
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-                                <a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
-                                <a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-                                <a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
                             </div>
-                        </li>
                         </form>
-                        </li>
-                    </ul>
-                </div>
+                        <!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
+                        <script>
+                            // Agregar un evento de clic al icono de lupa para enviar el formulario
+                            document.getElementById('button-addon2').addEventListener('click', function(event) {
+                                event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+                                document.querySelector('form').submit(); // Enviar el formulario
+                            });
+                        </script>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.php">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.php">Acerca de</a>
+                    </li>
+                    <!-- Menú desplegable -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
+                            <a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -213,8 +203,9 @@
                 </nav>
             </aside>
             <div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 0px; margin-bottom: 20px;">
-                <div class="post">
+                <div class="post"> <!-- nuestra historia -->
                     <h1 class="titulo" id="articulo-1" style="color: #ffffffce;  text-align: center;">Nuestra historia</h1>
+
                     <p style="color: #ffffffce;">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                         euismod scelerisque erat tincidunt hendrerit. Cras lobortis id
@@ -228,8 +219,10 @@
                         eros sagittis enim, sed ultricies lacus magna quis urna.
                     </p>
                 </div>
-                <div class="post">
+
+                <div class="post"> <!-- identidad -->
                     <h1 class="titulo" id="articulo-2" style="color: #ffffffce; text-align: center;">Identidad</h1>
+
                     <p style="color: #ffffffce;">
                         Ut sit amet vehicula lectus, nec vestibulum purus. Nulla a nibh
                         magna. Pellentesque commodo commodo sapien eu sagittis. Aenean
@@ -243,37 +236,90 @@
                         scelerisque aliquam.
                     </p>
                 </div>
-                <div class="post">
+
+                <div class="post"> <!-- legal -->
                     <h1 class="titulo" id="articulo-3" style="color: #ffffffce; text-align: center;">Legal</h1>
+
                     <p style="color: #ffffffce;">
-                        Aliquam congue nibh in urna porta blandit. Mauris nec mi elit.
-                        Duis ligula quam, suscipit nec hendrerit ac, efficitur pulvinar
-                        tortor. Quisque venenatis leo ac hendrerit molestie. Quisque
-                        malesuada, enim ut feugiat finibus, sem mi faucibus enim, vel
-                        rhoncus ante justo in nibh. Duis sit amet ipsum tempus,
-                        pellentesque ex sed, mollis erat. Sed metus nibh, tincidunt vel
-                        laoreet eget, bibendum at est.
+                        PROPIEDAD INTELECTUAL Y DERECHOS DE AUTOR:
                     </p>
-                </div>
-                <div class="post">
-                    <h1 class="titulo" id="articulo-4" style="color: #ffffffce;  text-align: center;">Métodos de pago</h1>
                     <p style="color: #ffffffce;">
-                    <p class="text fw-lighter " style="color: #ffffffce;">
+                        Todo el contenido de la página web de Sneackersun, incluyendo texto, gráficos y logotipos, está protegido por derechos de autor y propiedad intelectual.
+                        No está permitido copiar, modificar o distribuir dicho contenido sin autorización expresa de Sneackersun.
+                        Cualquier uso no autorizado constituye una violación de los derechos de propiedad intelectual.
+
+                    </p>
+                    <p style="color: #ffffffce;">
+                        MARCAS REGISTRADAS:
+                    </p>
+                    <p style="color: #ffffffce;">
+                        El logotipo de Sneackersun es una marca registrada en múltiples jurisdicciones en todo el mundo.
+                        Otras marcas, logotipos y nombres de servicios utilizados en el sitio web también son propiedad de Sneackersun o de sus afiliados.
+                        No se permite el uso de ninguna de las marcas pertenecientes a Sneackersun sin obtener previamente su permiso por escrito.
+                    </p>
+                    <p style="color: #ffffffce;">
+                        EXENCIÓN DE RESPONSABILIDAD:
+                    </p>
+                    <p style="color: #ffffffce;">
+                        La información proporcionada en el sitio web de Sneackersun se ofrece como una conveniencia para el visitante.
+                        Aunque se hacen esfuerzos razonables para proporcionar información correcta y precisa, Sneackersun no ofrece garantías o representaciones expresas o implícitas sobre la fiabilidad, precisión o integridad de dicha información.
+                        El uso del sitio web es bajo la discreción y riesgo exclusivo del usuario.
+                    </p>
+                    <p style="color: #ffffffce;">
+                        RECOPILACIÓN DE DATOS:</p>
+                    <p style="color: #ffffffce;">
+                        Sneackersun recopila información personal de los usuarios, como nombres, direcciones de correo electrónico y datos de pago, con el propósito de procesar pedidos y brindar un servicio eficiente.</p>
+                    <p style="color: #ffffffce;">
+                        Los datos recopilados se almacenan de manera segura y no se comparten con terceros sin el consentimiento del usuario.</p>
+                    </p>
+                    <p style="color: #ffffffce;">
+                        USO DE COOKIES:</p>
+                    <p style="color: #ffffffce;">
+                        Sneackersun utiliza cookies para mejorar la experiencia del usuario en el sitio web.</p>
+                    <p style="color: #ffffffce;">
+                        Las cookies pueden recopilar información sobre la navegación del usuario y preferencias para personalizar la experiencia.</p>
+                    </p>
+                    <p style="color: #ffffffce;">
+                        SEGURIDAD Y ACCESO:</p>
+                    <p style="color: #ffffffce;">
+                        Sneackersun se compromete a proteger la información personal de los usuarios mediante medidas de seguridad adecuadas.</p>
+                    <p style="color: #ffffffce;">
+                        Los usuarios pueden acceder, corregir o eliminar sus datos personales en cualquier momento.</p>
+                    </p>
+                    <p style="color: #ffffffce;">
+                        TRANSFERENCIAS BANCARIAS:</p>
+                    <p style="color: #ffffffce;">
+                        Sneackersun garantiza la seguridad de las transacciones bancarias realizadas a través del sitio web.</p>
+                    </p>
+                    <p style="color: #ffffffce;">
+                        ENLACES A SITIOS AFILIADOS:</p>
+                    <p style="color: #ffffffce;">
+                        El sitio web de Sneackersun puede contener enlaces a sitios web afiliados.</p>
+                    <p style="color: #ffffffce;">
+                        Sneackersun no se hace responsable de las prácticas de privacidad de estos sitios externos.</p>
+                    </p>
+
+                </div>
+
+                <div class="post"> <!-- metodos de pago -->
+                    <h1 class="titulo" id="articulo-4" style="color: #ffffffce;  text-align: center;">Métodos de pago</h1>
+
+                    <p style="color: #ffffffce;">
                         En nuestra tienda en línea contamos con plataformas de pago que cumplen con los más altos estándares de seguridad. A través de estas plataformas aceptamos los siguientes métodos de pago:
                         <mark>Tarjetas de Crédito, Tarjetas de Débito, pagos electrónicos PAYPAL</mark>
                     </p>
 
-                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         SEGURIDAD
                     </p>
 
-                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         - PRIVACIDAD ABSOLUTA: Nadie verá los datos de tu tarjeta de crédito o débito. Jamás. Toda la información financiera y personal está encriptada y protegida por SSL con una llave de encriptación de 128 bits.
                     </p>
-                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         - ESTÁNDARES DE SEGURIDAD: Contamos con los más altos estándares de seguridad.
                     </p>
-                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         FORMAS DE PAGO
                     </p>
                     <p class="text fw-lighter fs-6" style="color: #ffffffce;">- TARJETAS DE CRÉDITO con acreditación instantánea (valida las promociones a meses sin intereses vigentes).</p>
@@ -281,16 +327,16 @@
                         - TARJETAS DE DÉBITO con acreditación instantánea.
                     </p>
 
-                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         - PAGO CON CUENTA DE PAYPAL:
                     </p>
-                    <p class="text  fw-lighter" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         Es necesario tener una cuenta y registrar tus datos bancarios directamente en la página de PayPal.
                         Para más información acerca de los métodos de pago a través de la plataforma de PayPal, haz clic en el siguiente enlace:
                         <mark>www.paypal.com/mx/webapps/mpp/pay-online</mark>
                     </p>
 
-                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         SEGURIDAD
                     </p>
                     <p class="text  fw-lighter fs-6" style="color: #ffffffce;">
@@ -301,7 +347,7 @@
                     </p>
 
 
-                    <p class="text fw-lighter fs-6 fw-semibold" style="color: #ffffffce;">
+                    <p style="color: #ffffffce;">
                         MÉTODOS DE PAGO
                     </p>
 

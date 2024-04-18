@@ -77,6 +77,7 @@ include 'dbConfig.php';
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
 							<a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
+							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
 						</div>

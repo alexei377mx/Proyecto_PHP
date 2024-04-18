@@ -37,6 +37,12 @@ $custRow = $query->fetch_assoc();
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+
 <body>
     <!-- Barra de navegación -->
     <header>
@@ -89,6 +95,7 @@ $custRow = $query->fetch_assoc();
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
                             <a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
                             <a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
                             <a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
                         </div>
@@ -225,18 +232,16 @@ $custRow = $query->fetch_assoc();
             </div> -->
         </div>
 
-        <div class="container" style="display: inline-block; background-color: rgba(255, 255, 255, 0.05); margin-top: 10px; margin-bottom: 20px; text-align: center;">
+        <div class="container" style="display: block; background-color: rgba(255, 255, 255, 0.05); margin-top: 10px; margin-bottom: 20px; text-align: center;">
 
-            <main>
-                <div class="row">
-                    <div class="s12">
-                        <h6 style="color: #ffffffce;">Estás a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?></h6>
+            <div>
+                <h6 style="color: #ffffffce;">Estás a punto de pagar: <?php echo '$' . $cart->total() . ' MXN'; ?>
+                </h6>
 
-                        <br>
-                        <div id="paypal-button-container" style="display: inline-block;"></div>
-                    </div>
-                </div>
-            </main>
+                <br>
+                <div id="paypal-button-container"></div>
+            </div>
+
 
             <script src="https://www.paypal.com/sdk/js?client-id=AQS77ljM6yn5InALQQIUPrFm2OtpsxwBwWDBfymwtUbvUX8dvAP4TPLZBaz-47Dhuvxo388Nr2mdS_Dk&currency=MXN"></script>
 
