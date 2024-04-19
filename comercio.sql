@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2024 a las 05:54:05
+-- Tiempo de generación: 18-04-2024 a las 05:01:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,7 +46,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `username`, `password`, `name`, `email`, `phone`, `address`, `created`, `modified`, `status`, `user_id`) VALUES
-(1, 'emacias0', '$2y$10$OOWCyceefVy1wnOUf44YfOqG2Z7438t.VUTaeKHCwaFrcRpMJJbjC', 'Alexei', 'al@gm.com', '5513000226', 'calle 5 CDMX', '2024-04-12 16:54:08', '2024-04-12 16:54:08', NULL, NULL);
+(1, 'emacias0', '$2y$10$OOWCyceefVy1wnOUf44YfOqG2Z7438t.VUTaeKHCwaFrcRpMJJbjC', 'Alexei', 'al@gm.com', '5513000226', 'calle 5 CDMX', '2024-04-12 16:54:08', '2024-04-12 16:54:08', NULL, NULL),
+(2, 'emacias', '$2y$10$xUatVILsAnp8kMD.mODc8eW3FhDnQkCx48B8176//8o9iG5CHClgC', 'adam', 'adam@gmsa.com', '5513888224', 'calle madero 01000 CDMX', '2024-04-16 21:15:44', '2024-04-16 21:15:44', NULL, NULL),
+(3, 'as', '$2y$10$g3zozj4J9WKX7BLIPE92oOiCFkq/dVNWM.ybXPaVMz0ZI1SP8tGNy', 'JOSE ANTONIO', 'josenationo@gmail.com', '5513777224', 'calle madero 937 col. santa fe 01000 CDMX', '2024-04-17 19:50:02', '2024-04-17 19:50:02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,7 +80,13 @@ INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`,
 (7, 1, 7397.30, '2024-04-15 05:08:07', '2024-04-15 05:08:07', NULL, NULL),
 (8, 1, 1499.00, '2024-04-15 05:09:04', '2024-04-15 05:09:04', NULL, NULL),
 (9, 1, 1149.00, '2024-04-15 05:41:31', '2024-04-15 05:41:31', NULL, NULL),
-(10, 1, 1129.50, '2024-04-15 05:52:39', '2024-04-15 05:52:39', NULL, NULL);
+(10, 1, 1129.50, '2024-04-15 05:52:39', '2024-04-15 05:52:39', NULL, NULL),
+(11, 1, 4098.00, '2024-04-17 04:30:35', '2024-04-17 04:30:35', NULL, NULL),
+(12, 1, 2399.00, '2024-04-17 04:49:49', '2024-04-17 04:49:49', NULL, NULL),
+(13, 2, 11238.60, '2024-04-17 05:18:52', '2024-04-17 05:18:52', NULL, NULL),
+(14, 2, 14632.60, '2024-04-17 05:25:17', '2024-04-17 05:25:17', NULL, NULL),
+(15, 2, 9624.40, '2024-04-18 03:25:07', '2024-04-18 03:25:07', NULL, NULL),
+(16, 1, 9502.20, '2024-04-18 04:59:09', '2024-04-18 04:59:09', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,23 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 (14, 7, 1, 1),
 (15, 8, 51, 1),
 (16, 9, 4, 1),
-(17, 10, 31, 1);
+(17, 10, 31, 1),
+(18, 11, 32, 1),
+(19, 11, 57, 1),
+(20, 12, 34, 1),
+(21, 13, 27, 3),
+(22, 13, 18, 2),
+(23, 14, 7, 2),
+(24, 14, 53, 4),
+(25, 14, 3, 3),
+(26, 15, 34, 1),
+(27, 15, 19, 2),
+(28, 15, 1, 3),
+(29, 16, 4, 1),
+(30, 16, 45, 1),
+(31, 16, 17, 1),
+(32, 16, 46, 3),
+(33, 16, 22, 2);
 
 -- --------------------------------------------------------
 
@@ -211,18 +235,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'emacias', '$2y$10$DnKPxp4Bmb0JXpZauDK0Xu64hsCsV8UO28SBW5Jxgb.E4yPrR5/kG', '2024-03-16 14:50:14'),
-(2, 'emacias1', '$2y$10$OMaZKx4RcMirETM/BbveTO0js7qVp6BzTNAUPLQvJYqPuUBy4hmPi', '2024-03-26 14:36:00'),
-(3, 'as', '$2y$10$7s7.eR8tcKanDtNobKZ64.s/zNG/rMViJ8ISRMKLECYoMqWbIe3ey', '2024-04-03 19:48:39'),
-(4, '', '$2y$10$y6BPo91yV.qfi.udP73UYukeapHvjCENpcfF7gcrH7F2uSuAuyHDa', '2024-04-06 15:23:00'),
-(5, 'adam', '$2y$10$/M.GBVB2iJB5zTkWR.BeT.ELI2QrauZ.4P7GALirsiMh51UPOWuki', '2024-04-06 15:41:08'),
-(6, 'joe', '$2y$10$0QGIGnFR.4ZJwGwoWibFzu9CDbPsNL4Alu/Id5OQZgVaAMGmYYih2', '2024-04-07 20:09:27');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -268,25 +280,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

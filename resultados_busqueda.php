@@ -1,3 +1,8 @@
+<?php
+// Mandamos llamar nuestra BD
+include 'dbConfig.php';
+?>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap JS -->
@@ -89,9 +94,6 @@
         if (isset($_GET['search'])) {
             // Obtener el término de búsqueda desde la URL
             $searchTerm = $_GET['search'];
-
-            // Conectar a la base de datos (suponiendo que ya tienes la conexión establecida)
-            $db = mysqli_connect("localhost", "root", "", "comercio");
 
             // Consultar la base de datos buscando cualquier coincidencia en algún campo
             $query = "SELECT * FROM products WHERE name LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%'";
