@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2024 a las 05:01:51
+-- Tiempo de generación: 19-04-2024 a las 05:43:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -221,19 +221,6 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `status`, `URLimg`
 (59, 'Sandalia Rbcollection PV23 para mujer', 'Sandalias con plataforma Exterior Sintético Interior Sintético Suela Sintética Cuenta con Plantilla acojinada', 799.00, NULL, 'https://ss550.liverpool.com.mx/sm/9957141305.jpg'),
 (60, 'Sandalia RBCOLLECTION para mujer', 'Sandalias de piso exterior piel interior sin forro suela sintética cuenta con plantilla acojinada', 1100.00, NULL, 'https://ss550.liverpool.com.mx/sm/1134150081.jpg');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Índices para tablas volcadas
 --
@@ -266,13 +253,6 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -293,12 +273,6 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `order_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
