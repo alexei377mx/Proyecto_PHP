@@ -92,13 +92,16 @@ include 'dbConfig.php';
 					<li class="nav-item">
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
+					<li>
+						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+					</li>
+
 					<!-- Menú desplegable -->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
@@ -151,7 +154,11 @@ include 'dbConfig.php';
 				</tbody>
 				<tfoot>
 					<tr>
-						<td style="color: #ffffffce;" colspan="4" class="text-right"><strong>Total</strong></td>
+					<p style="color: #ffffffce; text-align: center;">
+                            NOTA: <br>
+                            SI TU CARRITO ES MENOR A $999.00 MXN, SE TE COBRARÁ $180 MXN DE ENVÍO, GRACIAS POR SU COMPRESIÓN:D
+                        </p>
+						<td style="color: #ffffffce;" colspan="4" class="text-right"><strong>Total con envío: </strong></td>
 						<td style="color: #ffffffce;" colspan="2"><?php echo '$' . $cart->total() . ' MXN'; ?></td>
 					</tr>
 					<tr>
@@ -164,8 +171,6 @@ include 'dbConfig.php';
 					</tr>
 				</tfoot>
 			</table>
-
-
 		</div>
 	</div>
 

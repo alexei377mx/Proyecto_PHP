@@ -25,7 +25,7 @@ include 'dbConfig.php';
 </head>
 
 <body>
-    <!-- Barra de navegación -->
+   <!-- Barra de navegación -->
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
 			<a class="navbar-brand" href="index.php">
@@ -69,13 +69,16 @@ include 'dbConfig.php';
 					<li class="nav-item">
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
+					<li>
+						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+					</li>
+
 					<!-- Menú desplegable -->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="viewCart.php">Carrito</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
 							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>

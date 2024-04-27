@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 class Cart {
     protected $cart_contents = array();
     
@@ -155,6 +156,12 @@ class Cart {
             unset($_SESSION['cart_contents']);
             return FALSE;
         }else{
+            // Check if the total is less than $999
+            if ($this->cart_contents['cart_total'] < 999) {
+                // Add shipping cost of $180
+                $this->cart_contents['cart_total'] += 180;
+            }
+            
             $_SESSION['cart_contents'] = $this->cart_contents;
             return TRUE;
         }
@@ -181,3 +188,4 @@ class Cart {
         unset($_SESSION['cart_contents']);
     }
 }
+?>
