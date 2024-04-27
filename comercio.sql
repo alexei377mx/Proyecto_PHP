@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2024 a las 05:43:01
+-- Tiempo de generación: 27-04-2024 a las 06:13:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -86,7 +86,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`,
 (13, 2, 11238.60, '2024-04-17 05:18:52', '2024-04-17 05:18:52', NULL, NULL),
 (14, 2, 14632.60, '2024-04-17 05:25:17', '2024-04-17 05:25:17', NULL, NULL),
 (15, 2, 9624.40, '2024-04-18 03:25:07', '2024-04-18 03:25:07', NULL, NULL),
-(16, 1, 9502.20, '2024-04-18 04:59:09', '2024-04-18 04:59:09', NULL, NULL);
+(16, 1, 9502.20, '2024-04-18 04:59:09', '2024-04-18 04:59:09', NULL, NULL),
+(17, 1, 167860.00, '2024-04-27 05:58:46', '2024-04-27 05:58:46', NULL, NULL),
+(18, 1, 94689.80, '2024-04-27 06:06:45', '2024-04-27 06:06:45', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,12 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 (30, 16, 45, 1),
 (31, 16, 17, 1),
 (32, 16, 46, 3),
-(33, 16, 22, 2);
+(33, 16, 22, 2),
+(34, 17, 7, 200),
+(35, 18, 38, 19),
+(36, 18, 52, 10),
+(37, 18, 33, 7),
+(38, 18, 55, 2);
 
 -- --------------------------------------------------------
 
@@ -266,13 +273,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
