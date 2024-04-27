@@ -41,6 +41,10 @@
         text-decoration: underline;
     }
 
+    p {
+        color: #ffffffce;
+    }
+
 
 
 
@@ -129,69 +133,69 @@
 </style>
 
 <body>
-   <!-- Barra de navegación -->
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
-			<a class="navbar-brand" href="index.php">
-				<img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
-				Sneakersun SA de CV
-			</a>
-			<p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<!-- Formulario de búsqueda -->
-						<form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
-							<div class="input-group">
-								<!-- buscador -->
-								<input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
-								<div class="input-group-append">
-									<button class="btn btn-outline-success" type="submit" id="button-addon2">
-										<i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
-									</button>
-								</div>
-							</div>
-						</form>
-						<!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
-						<script>
-							// Agregar un evento de clic al icono de lupa para enviar el formulario
-							document.getElementById('button-addon2').addEventListener('click', function(event) {
-								event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-								document.querySelector('form').submit(); // Enviar el formulario
-							});
-						</script>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="index.php">Inicio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="productos.php">Productos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="acerca.php">Acerca de</a>
-					</li>
-					<li>
-						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
-					</li>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
+            <a class="navbar-brand" href="index.php">
+                <img src="img\sneackersun-logo-no-background.png" alt="Sneakersun Logo" width="50" height="50">
+                Sneakersun SA de CV
+            </a>
+            <p class="sneakersun-paragraph" style="color: #9b9b9b;">¡Pisa con estilo, camina con confianza,<br> descubre tu paso perfecto con Sneackersun!</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- Formulario de búsqueda -->
+                        <form class="form-inline my-2 my-lg-0" action="resultados_busqueda.php" method="GET">
+                            <div class="input-group">
+                                <!-- buscador -->
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar calzado" aria-label="Buscar" name="search" style="color: #ffffffce; width: 50%; background-color: transparent; border-color: rgba(129, 129, 129, 0.5)">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-success" type="submit" id="button-addon2">
+                                        <i class="bi bi-search"></i> <!-- Icono de lupa de Bootstrap Icons -->
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Script para enviar el formulario al hacer clic en el icono de lupa -->
+                        <script>
+                            // Agregar un evento de clic al icono de lupa para enviar el formulario
+                            document.getElementById('button-addon2').addEventListener('click', function(event) {
+                                event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+                                document.querySelector('form').submit(); // Enviar el formulario
+                            });
+                        </script>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.php">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.php">Acerca de</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="viewCart.php">Mi Carrito</a>
+                    </li>
 
-					<!-- Menú desplegable -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Cuenta
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+                    <!-- Menú desplegable -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cuenta
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
+                            <a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+                            <a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main id="blog" style="margin-top: 0px;">
         <div class="container fade-in" style=" max-width: 1000px; width: 90%; margin: auto; display: flex; justify-content: space-between;">
@@ -206,20 +210,27 @@
                 </nav>
             </aside>
             <div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 0px; margin-bottom: 20px;">
-                <div class="post"> <!-- nuestra historia -->
+                <div style="color: #ffffffce;" class="post"> <!-- nuestra historia -->
                     <h1 class="titulo" id="articulo-1" style="color: #ffffffce;  text-align: center;">Nuestra historia</h1>
 
                     <p style="color: #ffffffce;">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        euismod scelerisque erat tincidunt hendrerit. Cras lobortis id
-                        diam sit amet consectetur. Suspendisse non pulvinar justo, ac
-                        commodo velit. Quisque maximus dolor ac magna molestie, sit amet
-                        commodo velit congue. Maecenas non dolor ut elit malesuada congue.
-                        Phasellus euismod nisi pharetra ante rutrum dignissim. Ut eget
-                        tortor ut sapien egestas sollicitudin. Aenean pulvinar varius
-                        augue, ac euismod tortor faucibus at. In commodo sodales turpis
-                        nec vehicula. Mauris luctus, risus non iaculis porttitor, felis
-                        eros sagittis enim, sed ultricies lacus magna quis urna.
+                    <p><mark> Fecha de Fundación:</mark> <br>16 de febrero de 2024</p>
+                    <p><mark>Fundadores: </mark><br>
+                        -Escorcia Macías A. Alexei <br>
+                        -Barrera Flores Diego Sebastián <br>
+                        -Sevilla Pérez Alan Jesús <br>
+                        -Espinosa de los Monteros Dante Alejandro <br>
+                    </p>
+                    <p><mark>Ubicación:</mark> <br>
+                        Cuautitlán Izcalli, Estado de México <br><br>
+                        <mark>Motivo de Ubicación: </mark><br>
+                        Estratégicamente ubicada en una zona con alta concentración de
+                        empresas, lo que facilita el acceso a proveedores y clientes.
+                    </p>
+                    <p><mark>Historia y Origen:</mark><br>
+                        La idea de Sneackersun surgió durante una conversación entre los fundadores, donde
+                        compartieron su pasión por el calzado y vieron una oportunidad de negocio en el mercado
+                        de sneakers personalizados y de alta calidad.
                     </p>
                 </div>
 
@@ -227,16 +238,29 @@
                     <h1 class="titulo" id="articulo-2" style="color: #ffffffce; text-align: center;">Identidad</h1>
 
                     <p style="color: #ffffffce;">
-                        Ut sit amet vehicula lectus, nec vestibulum purus. Nulla a nibh
-                        magna. Pellentesque commodo commodo sapien eu sagittis. Aenean
-                        luctus mauris sit amet quam ornare, eu ultricies nunc auctor.
-                        Nulla volutpat purus eu venenatis facilisis. Nulla risus nisl,
-                        rhoncus vitae pulvinar nec, viverra eu odio. Duis nisi quam,
-                        gravida sed imperdiet sed, viverra fermentum turpis. Cras non
-                        iaculis augue, nec scelerisque nibh. Sed auctor dolor mi, sit amet
-                        placerat tellus sagittis eu. Curabitur nec luctus dolor. Ut congue
-                        rutrum vehicula. Ut viverra tincidunt nunc, vitae cursus nulla
-                        scelerisque aliquam.
+                        <mark>Motivación para Asociarse: </mark><br>
+                        La complementariedad de habilidades y conocimientos en diseño, producción, marketing y
+                        gestión empresarial impulsó a los fundadores a asociarse para llevar a cabo este
+                        proyecto.
+
+                    <p><mark>Perfiles de los Fundadores: </mark>
+                        <br>-Alexei: Apasionado del diseño gráfico, residente de Cuautitlán
+                        Izcalli.
+                        <br>-Diego: Aficionado al deporte, reside en Tlalnepantla.
+                        <br>-Alan: Amante de la música, vive en Naucalpan.
+                        <br>-Dante: Apasionado de la moda, reside en Ciudad de México.
+                    </p>
+                    <p>
+                        <mark>Características Destacadas de Sneackersun:</mark>
+                        <br>-Enfoque en la personalización de sneakers.
+                        <br>-Uso de materiales de alta calidad.
+                        <br>-Atención al cliente personalizada.
+                        <br>-Ubicación estratégica que facilita el acceso a proveedores y clientes.
+                        <br><br><br>
+                        Con esta combinación de pasión, habilidades y enfoque en la calidad y la personalización,
+                        Sneackersun se posiciona como una empresa innovadora y prometedora en el competitivo
+                        mercado de calzado.
+                    </p>
                     </p>
                 </div>
 
@@ -244,7 +268,7 @@
                     <h1 class="titulo" id="articulo-3" style="color: #ffffffce; text-align: center;">Legal</h1>
 
                     <p style="color: #ffffffce;">
-                        PROPIEDAD INTELECTUAL Y DERECHOS DE AUTOR:
+                        <mark>PROPIEDAD INTELECTUAL Y DERECHOS DE AUTOR:</mark>
                     </p>
                     <p style="color: #ffffffce;">
                         Todo el contenido de la página web de Sneackersun, incluyendo texto, gráficos y logotipos, está protegido por derechos de autor y propiedad intelectual.
@@ -253,7 +277,7 @@
 
                     </p>
                     <p style="color: #ffffffce;">
-                        MARCAS REGISTRADAS:
+                        <mark>MARCAS REGISTRADAS:</mark>
                     </p>
                     <p style="color: #ffffffce;">
                         El logotipo de Sneackersun es una marca registrada en múltiples jurisdicciones en todo el mundo.
@@ -261,7 +285,7 @@
                         No se permite el uso de ninguna de las marcas pertenecientes a Sneackersun sin obtener previamente su permiso por escrito.
                     </p>
                     <p style="color: #ffffffce;">
-                        EXENCIÓN DE RESPONSABILIDAD:
+                        <mark>EXENCIÓN DE RESPONSABILIDAD:</mark>
                     </p>
                     <p style="color: #ffffffce;">
                         La información proporcionada en el sitio web de Sneackersun se ofrece como una conveniencia para el visitante.
@@ -269,37 +293,42 @@
                         El uso del sitio web es bajo la discreción y riesgo exclusivo del usuario.
                     </p>
                     <p style="color: #ffffffce;">
-                        RECOPILACIÓN DE DATOS:</p>
+                        <mark>RECOPILACIÓN DE DATOS:</mark>
+                    </p>
                     <p style="color: #ffffffce;">
                         Sneackersun recopila información personal de los usuarios, como nombres, direcciones de correo electrónico y datos de pago, con el propósito de procesar pedidos y brindar un servicio eficiente.</p>
                     <p style="color: #ffffffce;">
                         Los datos recopilados se almacenan de manera segura y no se comparten con terceros sin el consentimiento del usuario.</p>
                     </p>
                     <p style="color: #ffffffce;">
-                        USO DE COOKIES:</p>
+                        <mark> USO DE COOKIES:</mark>
+                    </p>
                     <p style="color: #ffffffce;">
                         Sneackersun utiliza cookies para mejorar la experiencia del usuario en el sitio web.</p>
                     <p style="color: #ffffffce;">
                         Las cookies pueden recopilar información sobre la navegación del usuario y preferencias para personalizar la experiencia.</p>
                     </p>
                     <p style="color: #ffffffce;">
-                        SEGURIDAD Y ACCESO:</p>
+                        <mark>SEGURIDAD Y ACCESO:</mark>
+                    </p>
                     <p style="color: #ffffffce;">
                         Sneackersun se compromete a proteger la información personal de los usuarios mediante medidas de seguridad adecuadas.</p>
                     <p style="color: #ffffffce;">
                         Los usuarios pueden acceder, corregir o eliminar sus datos personales en cualquier momento.</p>
                     </p>
                     <p style="color: #ffffffce;">
-                        TRANSFERENCIAS BANCARIAS:</p>
+                        <mark>TRANSFERENCIAS BANCARIAS:</mark>
+                    </p>
                     <p style="color: #ffffffce;">
                         Sneackersun garantiza la seguridad de las transacciones bancarias realizadas a través del sitio web.</p>
                     </p>
                     <p style="color: #ffffffce;">
-                        ENLACES A SITIOS AFILIADOS:</p>
+                        <mark>ENLACES A SITIOS AFILIADOS:</mark>
+                    </p>
                     <p style="color: #ffffffce;">
                         El sitio web de Sneackersun puede contener enlaces a sitios web afiliados.</p>
                     <p style="color: #ffffffce;">
-                        Sneackersun no se hace responsable de las prácticas de privacidad de estos sitios externos.</p>
+                        Sneackersun no se hace responsable de las prácticas de privacidad de estos sitios externos.
                     </p>
 
                 </div>
