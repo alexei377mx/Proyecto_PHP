@@ -27,7 +27,7 @@ include 'dbConfig.php';
 			if (data == 'ok') {
 				location.reload();
 			} else {
-				alert('Error');
+				location.reload();
 			}
 		});
 	}
@@ -157,6 +157,8 @@ include 'dbConfig.php';
 					<p style="color: #ffffffce; text-align: center;">
                             NOTA: <br>
                             SI TU CARRITO ES MENOR A $999.00 MXN, SE TE COBRARÁ $180 MXN DE ENVÍO, GRACIAS POR SU COMPRESIÓN:D
+							<br>NUESTROS PRECIOS INCLUYEN IVA
+							
                         </p>
 						<td style="color: #ffffffce;" colspan="4" class="text-right"><strong>Total con envío: </strong></td>
 						<td style="color: #ffffffce;" colspan="2"><?php echo '$' . $cart->total() . ' MXN'; ?></td>

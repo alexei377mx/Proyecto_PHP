@@ -132,7 +132,7 @@ $custRow = $query->fetch_assoc();
                                 <!-- <td><img src="<?php echo $item["URLimg"]; ?>" alt="Product Image" style="height: 100px;width: auto;"></td> -->
                                 <td style="color: #ffffffce;"><?php echo $item["name"]; ?></td>
                                 <td style="color: #ffffffce;"><?php echo '$' . $item["price"] . ' MXN'; ?></td>
-                                <td><input style="background-color: #ffffffce; border-color: rgba(129, 129, 129, 0.5)" type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
+                                <td><input style="background-color: #ffffffce; border-color: rgba(129, 129, 129, 0.5)" type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')" readonly>
                                 <td style="color: #ffffffce;"><?php echo '$' . $item["subtotal"] . ' MXN'; ?></td>
                             </tr>
                         <?php }

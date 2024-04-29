@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "El nombre de usuario solo puede contener letras, números, y guiones bajos";
     } else {
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT id FROM customers WHERE username = ?";
 
         if ($stmt = $db->prepare($sql)) {
             // Bind variables to the prepared statement as parameters

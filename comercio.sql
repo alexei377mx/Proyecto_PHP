@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-04-2024 a las 06:13:32
+-- Tiempo de generación: 29-04-2024 a las 05:17:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,7 +48,8 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`id`, `username`, `password`, `name`, `email`, `phone`, `address`, `created`, `modified`, `status`, `user_id`) VALUES
 (1, 'emacias0', '$2y$10$OOWCyceefVy1wnOUf44YfOqG2Z7438t.VUTaeKHCwaFrcRpMJJbjC', 'Alexei', 'al@gm.com', '5513000226', 'calle 5 CDMX', '2024-04-12 16:54:08', '2024-04-12 16:54:08', NULL, NULL),
 (2, 'emacias', '$2y$10$xUatVILsAnp8kMD.mODc8eW3FhDnQkCx48B8176//8o9iG5CHClgC', 'adam', 'adam@gmsa.com', '5513888224', 'calle madero 01000 CDMX', '2024-04-16 21:15:44', '2024-04-16 21:15:44', NULL, NULL),
-(3, 'as', '$2y$10$g3zozj4J9WKX7BLIPE92oOiCFkq/dVNWM.ybXPaVMz0ZI1SP8tGNy', 'JOSE ANTONIO', 'josenationo@gmail.com', '5513777224', 'calle madero 937 col. santa fe 01000 CDMX', '2024-04-17 19:50:02', '2024-04-17 19:50:02', NULL, NULL);
+(3, 'as', '$2y$10$g3zozj4J9WKX7BLIPE92oOiCFkq/dVNWM.ybXPaVMz0ZI1SP8tGNy', 'JOSE ANTONIO', 'josenationo@gmail.com', '5513777224', 'calle madero 937 col. santa fe 01000 CDMX', '2024-04-17 19:50:02', '2024-04-17 19:50:02', NULL, NULL),
+(4, 'assassination', '$2y$10$53tqdnNWE45cYNJagsLOBecciJkSi2Kn/BC4xdNVFM6sOXmDPU8C2', 'miguel benitez', 'miguelbenitez@gmail.com', '5513000228', 'calle madero no 39 colonia morelos, pc 01000 ciudad de mexico', '2024-04-28 21:07:36', '2024-04-28 21:07:36', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,8 @@ INSERT INTO `orders` (`id`, `customer_id`, `total_price`, `created`, `modified`,
 (15, 2, 9624.40, '2024-04-18 03:25:07', '2024-04-18 03:25:07', NULL, NULL),
 (16, 1, 9502.20, '2024-04-18 04:59:09', '2024-04-18 04:59:09', NULL, NULL),
 (17, 1, 167860.00, '2024-04-27 05:58:46', '2024-04-27 05:58:46', NULL, NULL),
-(18, 1, 94689.80, '2024-04-27 06:06:45', '2024-04-27 06:06:45', NULL, NULL);
+(18, 1, 94689.80, '2024-04-27 06:06:45', '2024-04-27 06:06:45', NULL, NULL),
+(19, 4, 99915.00, '2024-04-29 05:11:17', '2024-04-29 05:11:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -145,7 +147,16 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 (35, 18, 38, 19),
 (36, 18, 52, 10),
 (37, 18, 33, 7),
-(38, 18, 55, 2);
+(38, 18, 55, 2),
+(39, 19, 35, 20),
+(40, 19, 18, 1),
+(41, 19, 43, 1),
+(42, 19, 51, 1),
+(43, 19, 16, 1),
+(44, 19, 26, 1),
+(45, 19, 53, 2),
+(46, 19, 36, 3),
+(47, 19, 34, 1);
 
 -- --------------------------------------------------------
 
@@ -267,19 +278,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Restricciones para tablas volcadas

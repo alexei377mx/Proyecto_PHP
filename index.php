@@ -143,7 +143,7 @@ include 'dbConfig.php';
 													title: '¡Producto agregado!',
 													text: 'El producto ha sido agregado al carrito.',
 													showConfirmButton: false,
-													timer: 2000 // Duración de la notificación en milisegundos
+													timer: 1200 // Duración de la notificación en milisegundos
 												});
 											}
 										};
