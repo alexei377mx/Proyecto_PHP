@@ -89,21 +89,47 @@ $custRow = $query->fetch_assoc();
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
 					<li>
-						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+						<?php
+						// Comprueba si la sesión está iniciada
+						session_start();
+
+						if (isset($_SESSION['loggedin'])) {
+							// Si la sesión está iniciada, muestra el enlace "iniciado"
+							echo '<a class="nav-link" href="viewCart.php">Mi Carrito</a>';
+						} else {
+							// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+							echo '<a class="nav-link" style="color: #9b9b9b;" href="login.php">Iniciar sesión<br></a>';
+						}
+						?>
 					</li>
 
 					<!-- Menú desplegable -->
-					<li class="nav-item dropdown">
+					<?php
+					// Comprueba si la sesión está iniciada
+					session_start();
+
+					if (isset($_SESSION['loggedin'])) {
+						// Si la sesión está iniciada, muestra el enlace "iniciado"
+
+						echo '
+								<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-						</div>
-					</li>
-				</ul>
+								<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>';
+					} else {
+						// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+						echo '';
+					}
+					?>
+
+
+			</div>
+			</li>
+			</ul>
 			</div>
 		</nav>
 	</header>

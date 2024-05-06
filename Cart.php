@@ -165,8 +165,8 @@ class Cart
             unset($_SESSION['cart_contents']);
             return FALSE;
         } else {
-            // Check if the total is less than $999
-            if ($this->cart_contents['cart_total'] < 999) {
+            // Check if the total is less than $2000
+            if ($this->cart_contents['cart_total'] < 2000) {
                 // Add shipping cost of $180
                 $this->cart_contents['cart_total'] += 180;
                 // Show hidden div

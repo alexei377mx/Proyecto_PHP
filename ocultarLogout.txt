@@ -1,0 +1,42 @@
+Para ocultar un div utilizando PHP en otro archivo PHP, puedes hacer lo siguiente:
+
+Supongamos que tienes dos archivos PHP: `archivo1.php` y `archivo2.php`, y quieres ocultar un div en `archivo1.php` basado en alguna condición en `archivo2.php`.
+
+En `archivo1.php`, puedes hacer algo como esto:
+
+```php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Archivo 1</title>
+</head>
+<body>
+
+<div id="miDiv">
+    <?php include 'archivo2.php'; ?>
+</div>
+
+</body>
+</html>
+```
+
+En `archivo2.php`, puedes definir una variable que contenga un valor que determine si el div debe estar oculto o no. Por ejemplo:
+
+```php
+<?php
+// Supongamos que esta es la condición que determina si el div debe estar oculto
+$ocultarDiv = true;
+?>
+
+<?php if ($ocultarDiv): ?>
+    <style>
+        #miDiv {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+```
+
+En este caso, si `$ocultarDiv` es `true`, se imprimirá un estilo CSS que oculta el div con el ID `miDiv`.
+
+Esta es solo una forma de hacerlo. Dependiendo de la complejidad de tu aplicación y de tus necesidades específicas, puede que haya otras formas de lograr lo mismo.

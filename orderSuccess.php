@@ -1,6 +1,6 @@
 <?php
 if (!isset($_REQUEST['id'])) {
-    header("Location: index.php");
+	header("Location: index.php");
 }
 ?>
 
@@ -16,18 +16,18 @@ if (!isset($_REQUEST['id'])) {
 <!-- encabezado -->
 
 <head>
-    <title>Sneakersun - Identificador de la orden</title>
-    <link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Enlace a la hoja de estilos de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Enlace a la hoja de estilos personalizada -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Sneakersun - Identificador de la orden</title>
+	<link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Enlace a la hoja de estilos de Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Enlace a la hoja de estilos personalizada -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 
-   <!-- Barra de navegación -->
+	<!-- Barra de navegación -->
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
 			<a class="navbar-brand" href="index.php">
@@ -72,75 +72,110 @@ if (!isset($_REQUEST['id'])) {
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
 					<li>
-						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+						<?php
+						// Comprueba si la sesión está iniciada
+						session_start();
+
+						if (isset($_SESSION['loggedin'])) {
+							// Si la sesión está iniciada, muestra el enlace "iniciado"
+							echo '<a class="nav-link" href="viewCart.php">Mi Carrito</a>';
+						} else {
+							// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+							echo '<a class="nav-link" style="color: #9b9b9b;" href="login.php">Iniciar sesión<br></a>';
+						}
+						?>
 					</li>
 
 					<!-- Menú desplegable -->
-					<li class="nav-item dropdown">
+					<?php
+					// Comprueba si la sesión está iniciada
+					session_start();
+
+					if (isset($_SESSION['loggedin'])) {
+						// Si la sesión está iniciada, muestra el enlace "iniciado"
+
+						echo '
+								<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-						</div>
-					</li>
-				</ul>
+								<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>';
+					} else {
+						// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+						echo '';
+					}
+					?>
+
+
+			</div>
+			</li>
+			</ul>
 			</div>
 		</nav>
 	</header>
 
-    <!-- Estado de la orden -->
-    <div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 100px; margin-bottom: 20px;">
+	<!-- Estado de la orden -->
+	<div class="container fade-in" style="background-color: rgba(255, 255, 255, 0.05); margin-top: 100px; margin-bottom: 20px;">
 
 
-        <h1 class="display-4" style="color: #ffffffce; text-align: center;">Estado de la orden</h1>
+		<h1 class="display-4" style="color: #ffffffce; text-align: center;">Estado de la orden</h1>
 
-        <br>
-        <h4 style="color: #ffffffce; text-align: center;">¡Tu orden se ha realizado con exito!
-            <br> El ID de la orden es #<?php echo $_GET['id']; ?>
-        </h4>
+		<br>
+		<h4 style="color: #ffffffce; text-align: center;">¡Tu orden se ha realizado con exito!
+			<br> El ID de la orden es #<?php echo $_GET['id']; ?>
+		</h4>
+		<?php $order_id = $_GET['id']; ?>
+		<a href="index.php" class="btn btn-primary btn-lg" style="background-color: purple; color: #ffffffce; border: none;">Volver al inicio</a>
 
-        <a href="index.php" class="btn btn-primary btn-lg" style="background-color: purple; color: #ffffffce; border: none;">Volver al inicio</a>
-    </div>
+		<!-- Botón para imprimir factura -->
+		<div style="text-align: right; margin-bottom: 20px;">
+			<?php
+			if (isset($_SESSION['loggedin'])) {
+				echo '<a href="generate_pdf.php?order_id=' . $order_id . '" class="btn btn-primary btn-lg" style="background-color: purple; color: #ffffffce; border: none;">Imprimir Factura</a>';
+			}
+			?>
+		</div>
+	</div>
 
-    <!-- contacto -->
-    <footer>
-        <span class="half-br"></span>
-        <div class="container fade-in" style="margin-top: 20px; margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px);">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 style="color: #ffffffce;">Sneakersun SA de CV</h4>
-                    <p>Sneakersun SA de CV es una empresa dedicada a la venta de calzado.</p>
-                </div>
-                <div class="col-md-6">
-                    <h4 style="color: #ffffffce;">Contacto</h4>
-                    <ul class="list-unstyled" style="color: gray">
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Tecnológico #123, Col. Centro, Ciudad de México</li>
-                        <li><i class="fas fa-phone"></i> +52 55 2411 1229</li>
-                        <li><i class="fas fa-envelope"></i> info@sneakersun.com.mx</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 style="color: #ffffffce;">Políticas de privacidad</h5>
-                    <p>Respetamos la privacidad de nuestros clientes y nos comprometemos a proteger sus datos personales. Utilizamos la información que nos proporciona solo para procesar su pedido y mejorar su experiencia de compra. Nunca compartiremos su información con terceros sin su consentimiento previo.</p>
-                </div>
-                <div class="col-md-6">
-                    <h5 style="color: #ffffffce;">Redes sociales</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+	<!-- contacto -->
+	<footer>
+		<span class="half-br"></span>
+		<div class="container fade-in" style="margin-top: 20px; margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(20px);">
+			<div class="row">
+				<div class="col-md-6">
+					<h4 style="color: #ffffffce;">Sneakersun SA de CV</h4>
+					<p>Sneakersun SA de CV es una empresa dedicada a la venta de calzado.</p>
+				</div>
+				<div class="col-md-6">
+					<h4 style="color: #ffffffce;">Contacto</h4>
+					<ul class="list-unstyled" style="color: gray">
+						<li><i class="fas fa-map-marker-alt"></i> Av. Tecnológico #123, Col. Centro, Ciudad de México</li>
+						<li><i class="fas fa-phone"></i> +52 55 2411 1229</li>
+						<li><i class="fas fa-envelope"></i> info@sneakersun.com.mx</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<h5 style="color: #ffffffce;">Políticas de privacidad</h5>
+					<p>Respetamos la privacidad de nuestros clientes y nos comprometemos a proteger sus datos personales. Utilizamos la información que nos proporciona solo para procesar su pedido y mejorar su experiencia de compra. Nunca compartiremos su información con terceros sin su consentimiento previo.</p>
+				</div>
+				<div class="col-md-6">
+					<h5 style="color: #ffffffce;">Redes sociales</h5>
+					<ul class="list-unstyled">
+						<li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+						<li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+						<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+						<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body>
 

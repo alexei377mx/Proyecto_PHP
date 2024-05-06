@@ -15,19 +15,18 @@ include 'dbConfig.php';
 
 
 <head>
-    <title>Sneakersun SA de CV</title>
-    <link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Enlace a la hoja de estilos de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Enlace a la hoja de estilos personalizada -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Sneakersun SA de CV</title>
+	<link rel="shortcut icon" href="img\sneackersun-logo-no-background.png" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Enlace a la hoja de estilos de Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Enlace a la hoja de estilos personalizada -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 
-
-   <!-- Barra de navegación -->
+	<!-- Barra de navegación -->
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-bottom: 20px; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);">
 			<a class="navbar-brand" href="index.php">
@@ -72,72 +71,98 @@ include 'dbConfig.php';
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
 					<li>
-						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+						<?php
+						// Comprueba si la sesión está iniciada
+						session_start();
+
+						if (isset($_SESSION['loggedin'])) {
+							// Si la sesión está iniciada, muestra el enlace "iniciado"
+							echo '<a class="nav-link" href="viewCart.php">Mi Carrito</a>';
+						} else {
+							// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+							echo '<a class="nav-link" style="color: #9b9b9b;" href="login.php">Iniciar sesión<br></a>';
+						}
+						?>
 					</li>
 
 					<!-- Menú desplegable -->
-					<li class="nav-item dropdown">
+					<?php
+					// Comprueba si la sesión está iniciada
+					session_start();
+
+					if (isset($_SESSION['loggedin'])) {
+						// Si la sesión está iniciada, muestra el enlace "iniciado"
+
+						echo '
+								<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-						</div>
-					</li>
-				</ul>
+								<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>';
+					} else {
+						// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+						echo '';
+					}
+					?>
+
+
+			</div>
+			</li>
+			</ul>
 			</div>
 		</nav>
 	</header>
 
-    <div class="container fade-in" style="margin-top: -10px; background-color: rgba(255, 255, 255, 0.25);">
-        <?php
-        // Verificar si se ha enviado un término de búsqueda
-        if (isset($_GET['search'])) {
-            // Obtener el término de búsqueda desde la URL
-            $searchTerm = $_GET['search'];
+	<div class="container fade-in" style="margin-top: -10px; background-color: rgba(255, 255, 255, 0.25);">
+		<?php
+		// Verificar si se ha enviado un término de búsqueda
+		if (isset($_GET['search'])) {
+			// Obtener el término de búsqueda desde la URL
+			$searchTerm = $_GET['search'];
 
-            // Consultar la base de datos buscando cualquier coincidencia en algún campo
-            $query = "SELECT * FROM products WHERE name LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%'";
-            $resultado = mysqli_query($db, $query);
+			// Consultar la base de datos buscando cualquier coincidencia en algún campo
+			$query = "SELECT * FROM products WHERE name LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%'";
+			$resultado = mysqli_query($db, $query);
 
-            // Verificar si se encontraron resultados
-            if (mysqli_num_rows($resultado) > 0) {
-                echo '<br><br><br> <h1 style="color: white">Resultados de la búsqueda</h1>';
-                echo '<div id="products" class="row">';
-                // Mostrar los resultados
-                while ($row = mysqli_fetch_assoc($resultado)) {
-        ?>
-                    <div class="col-lg-4">
-                        <div class="card" style="margin: 3px; display: flex; flex-direction: column; height: 450px; align-items: center; background-color: rgba(255, 255, 255, 0.75);">
-                            <div style="flex: 1;">
-                                <h5 class="card-title" style="text-align: center;"><br><?php echo $row["name"]; ?></h5>
-                                <p class="card-text" style="text-align: center;"><?php echo $row["description"]; ?></p>
-                            </div>
-                            <div style="flex: 1;">
-                                <img src="<?php echo $row["URLimg"]; ?>" alt="Product Image" style="height: 200px; width: auto;">
-                            </div>
-                            <div style="flex: 1;">
-                                <p class="lead"><?php echo '$' . $row["price"] . ' MXN'; ?></p>
-                                <a class="btn btn-success" style="background-color: #d56e00; color: #ffffffce; border: none;" onclick="addToCart(<?php echo $row["id"]; ?>)">Agrega al Carrito</a>
-                            </div>
-                        </div>
-                    </div>
-        <?php }
-                echo '</div>';
-            } else {
-                echo "<br><br><br><br> <h1 style='color: white;'>No se encontraron resultados para la búsqueda: $searchTerm</h1>";
-            }
+			// Verificar si se encontraron resultados
+			if (mysqli_num_rows($resultado) > 0) {
+				echo '<br><br><br> <h1 style="color: white">Resultados de la búsqueda</h1>';
+				echo '<div id="products" class="row">';
+				// Mostrar los resultados
+				while ($row = mysqli_fetch_assoc($resultado)) {
+		?>
+					<div class="col-lg-4">
+						<div class="card" style="margin: 3px; display: flex; flex-direction: column; height: 450px; align-items: center; background-color: rgba(255, 255, 255, 0.75);">
+							<div style="flex: 1;">
+								<h5 class="card-title" style="text-align: center;"><br><?php echo $row["name"]; ?></h5>
+								<p class="card-text" style="text-align: center;"><?php echo $row["description"]; ?></p>
+							</div>
+							<div style="flex: 1;">
+								<img src="<?php echo $row["URLimg"]; ?>" alt="Product Image" style="height: 200px; width: auto;">
+							</div>
+							<div style="flex: 1;">
+								<p class="lead"><?php echo '$' . $row["price"] . ' MXN'; ?></p>
+								<a class="btn btn-success" style="background-color: #d56e00; color: #ffffffce; border: none;" onclick="addToCart(<?php echo $row["id"]; ?>)">Agrega al Carrito</a>
+							</div>
+						</div>
+					</div>
+		<?php }
+				echo '</div>';
+			} else {
+				echo "<br><br><br><br> <h1 style='color: white;'>No se encontraron resultados para la búsqueda: $searchTerm</h1>";
+			}
 
-            // Cerrar la conexión a la base de datos
-            mysqli_close($db);
-        } else {
-            // Si no se ha enviado un término de búsqueda, redirigir al usuario a otra página
-            header("Location: index.php");
-            exit(); // Asegurarse de que el script se detenga aquí
-        }
-        ?>
-        <a class="btn btn-success" href="productos.php" style="background-color: purple; color: #ffffffce; border: none;">Ve nuestro catálogo completo</a>
-    </div>
+			// Cerrar la conexión a la base de datos
+			mysqli_close($db);
+		} else {
+			// Si no se ha enviado un término de búsqueda, redirigir al usuario a otra página
+			header("Location: index.php");
+			exit(); // Asegurarse de que el script se detenga aquí
+		}
+		?>
+		<a class="btn btn-success" href="productos.php" style="background-color: purple; color: #ffffffce; border: none;">Ve nuestro catálogo completo</a>
+	</div>
 </body>

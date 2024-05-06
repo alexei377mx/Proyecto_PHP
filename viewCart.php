@@ -93,21 +93,47 @@ include 'dbConfig.php';
 						<a class="nav-link" href="acerca.php">Acerca de</a>
 					</li>
 					<li>
-						<a class="nav-link" href="viewCart.php">Mi Carrito</a>
+						<?php
+						// Comprueba si la sesión está iniciada
+						session_start();
+
+						if (isset($_SESSION['loggedin'])) {
+							// Si la sesión está iniciada, muestra el enlace "iniciado"
+							echo '<a class="nav-link" href="viewCart.php">Mi Carrito</a>';
+						} else {
+							// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+							echo '<a class="nav-link" style="color: #9b9b9b;" href="login.php">Iniciar sesión<br></a>';
+						}
+						?>
 					</li>
 
 					<!-- Menú desplegable -->
-					<li class="nav-item dropdown">
+					<?php
+					// Comprueba si la sesión está iniciada
+					session_start();
+
+					if (isset($_SESSION['loggedin'])) {
+						// Si la sesión está iniciada, muestra el enlace "iniciado"
+
+						echo '
+								<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Cuenta
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0, 0, 0, 0.25); backdrop-filter: blur(5px);">
-							<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
-							<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>
-						</div>
-					</li>
-				</ul>
+								<a class="nav-link" style="color: #9b9b9b;" href="orders.php">Mis<br>compras</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="reset-password.php">Cambiar<br>Contraseña</a>
+		<a class="nav-link" style="color: #9b9b9b;" href="logout.php">Cerrar<br>Sesión</a>';
+					} else {
+						// Si la sesión no está iniciada, muestra el enlace "noiniciado"
+						echo '';
+					}
+					?>
+
+
+			</div>
+			</li>
+			</ul>
 			</div>
 		</nav>
 	</header>
@@ -154,12 +180,12 @@ include 'dbConfig.php';
 				</tbody>
 				<tfoot>
 					<tr>
-					<p style="color: #ffffffce; text-align: center;">
-                            NOTA: <br>
-                            SI TU CARRITO ES MENOR A $999.00 MXN, SE TE COBRARÁ $180 MXN DE ENVÍO, GRACIAS POR SU COMPRESIÓN:D
+						<p style="color: #ffffffce; text-align: center;">
+							NOTA: <br>
+							SI TU CARRITO ES MENOR A $2000.00 MXN, SE TE COBRARÁ $180 MXN DE ENVÍO, GRACIAS POR SU COMPRESIÓN:D
 							<br>NUESTROS PRECIOS INCLUYEN IVA
-							
-                        </p>
+
+						</p>
 						<td style="color: #ffffffce;" colspan="4" class="text-right"><strong>Total con envío: </strong></td>
 						<td style="color: #ffffffce;" colspan="2"><?php echo '$' . $cart->total() . ' MXN'; ?></td>
 					</tr>
